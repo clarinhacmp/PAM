@@ -1,14 +1,27 @@
 import React from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 interface Props {
-    title: string
+    title: string;
+    onPress: () => void;
 }
 
-export default function CustomButton({title}: Props) {
+export default function CustomButton({title, onPress }: Props) {
     return (
-        <TouchableOpacity>
-            <text>{title}</text>
+        <TouchableOpacity style={styles.button} onPress={onPress}>
+            <Text style={styles.text}>{title}</Text>
         </TouchableOpacity>
     );
 }
+
+const styles = StyleSheet.create({
+    button: {
+        backgroundColor: "blue",
+        padding: 10,
+        borderRadius: 5,
+    },
+    text: {
+        color: "white",
+        textAlign: "center",
+    },
+});
